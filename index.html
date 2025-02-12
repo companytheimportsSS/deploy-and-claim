@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #f0f0f5;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #6a11cb;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .producto {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            margin: 15px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .producto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .producto img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .producto h3 {
+            margin: 15px 0 10px;
+            font-size: 20px;
+            color: #333;
+        }
+        .producto p {
+            color: #777;
+            font-size: 16px;
+        }
+        .btn-whatsapp {
+            display: inline-block;
+            padding: 12px 20px;
+            margin-top: 12px;
+            background: linear-gradient(to right, #25d366, #128C7E);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-whatsapp:hover {
+            background: linear-gradient(to right, #128C7E, #25d366);
+        }
+    </style>
+</head>
+<body>
+    <h1>Catálogo de Productos</h1>
+    <div class="container" id="productos"></div>
+    
+    <script>
+        const productos = [
+            { nombre: "Hamburguesa Clásica", precio: "5.00", imagen: "https://via.placeholder.com/280" },
+            { nombre: "Papas Fritas", precio: "2.50", imagen: "https://via.placeholder.com/280" },
+            { nombre: "Malteada de Chocolate", precio: "3.00", imagen: "https://via.placeholder.com/280" }
+        ];
+
+        const contenedor = document.getElementById("productos");
+        productos.forEach(producto => {
+            const div = document.createElement("div");
+            div.classList.add("producto");
+            div.innerHTML = `
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <h3>${producto.nombre}</h3>
+                <p>Precio: $${producto.precio}</p>
+                <a class="btn-whatsapp" href="https://wa.me/1234567890?text=Quiero%20pedir%20${producto.nombre}" target="_blank">Pedir por WhatsApp</a>
+            `;
+            contenedor.appendChild(div);
+        });
+    </script>
+</body>
+</html>
